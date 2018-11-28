@@ -8,6 +8,7 @@
 
 .sideBar {
   width: 25%;
+  min-width: 91px;
 }
 
 #search {
