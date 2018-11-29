@@ -20,7 +20,7 @@ Service Worker (Cache) - The standard React Service Worker has been implemented,
 
 # How to run the project
 
-Clone this repo: https://github.com/KPlaisance/mapapp3
-Enter into the root directory
-Run 'npm install'
-Run 'npm run start'
+* Clone this repo: https://github.com/KPlaisance/mapapp3
+* Enter into the root directory
+* Run 'npm install'
+* Run 'npm run start'
