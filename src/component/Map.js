@@ -19,6 +19,7 @@ const MyMapComponent = withScriptjs(
             return(
                 <Marker 
                     key={idx}
+                    aria-label="marker"
                     position={{ lat: marker.lat, lng: marker.lng }}
                     onClick={() => props.handleMarkerClick(marker)}
                     animation=
