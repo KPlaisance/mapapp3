@@ -1,44 +1,26 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Overview - Neighborhood Map (React)
 
-## Available Scripts
+This game is the final project in the Udacity Front-End Nanodegree program.
 
-In the project directory, you can run:
+I used multiple APIs to obtain the functionality spelled out in the project instructions. For example:
 
-### `npm start`
+* Google Maps
+* Foursquare
+* Font Awesome
+* google-maps-react
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
+I chose a map of Houston, TX. It shows 5 taco restaurants around the area. These are marked by a red marker that is animated. The name and picture (when available from Foursquare) is provided in a popout menu. To obtain information on the restaurant, you can click on a marker, click on the name in the list on the left hand side or filter using the text filter box on the left hand side. By clicking on either the "x" in the popup, or by clicking another restaurant, it will close the box. 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+I used a walkthrough by Matthew Cranford and Udacity as reference with help figuring out how to setup the game. The links are in the Udacity walkthrough page: https://www.diigo.com/outliner/fj3m65/Udacity-Classic-Arcade-Game-Project-(project-%233)?key=al7ek43dms
 
-### `npm test`
+Tabbing functionality on the left hand list is enabled. Responsive design has been used to make the app accessable on all devices.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Service Worker (Cache) - The standard React Service Worker has been implemented, however it can only work properly in a production build and won't be able to be ran in testing. The "register()" function has been enabled in the index.js file.
 
-### `npm run build`
+# How to run the project
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Clone this repo: https://github.com/KPlaisance/mapapp3
+Enter into the root directory
+Run 'npm install'
+Run 'npm run start'
