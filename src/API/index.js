@@ -29,19 +29,42 @@ class Helper {
         };
     }
 
+    componentDidCatch(error, errorInfo) {
+        this.setState({
+          error: error,
+          errorInfo: errorInfo
+        });
+      }
+
     static simpleFetch(endPoint, method, urlPrams){
         let requestData = {
             method,
             headers: Helper.headers()
         };
+
         return fetch(
             `${Helper.baseURL()}${endPoint}?${Helper.auth()}&${Helper.urlBuilder(
             urlPrams
         )}`,
         requestData
-        ).then(res => res.json());
+        )
+        .then(res => {
+            
+            if (res.ok) {
+                return res.json();              
+            }else{  
+                try{
+                    throw new Error('Error Caught');
+                } catch (e) {
+                    console.error(e.message);
+                    return res.json();
+                }         
+                
+            }
+        })
     }
 }
+
 
 // // Register Service Worker
 // if ('serviceWorker' in navigator){

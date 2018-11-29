@@ -36,6 +36,15 @@
   }
 }
 
+.error-message {
+  background-color: #ff7272;
+  color: white;
+  padding: 3em;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 2em;
+}
+
 
 /* h1 {
   font-size: 22px;
