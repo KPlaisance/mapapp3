@@ -60,7 +60,6 @@ class App extends Component {
     SquareAPI.getVenueDetails(marker.id).then(res => {
       const newVenue = Object.assign(venue, res.response.venue);
       this.setState({venues: Object.assign(this.state.venues, newVenue)});
-     // console.log(newVenue);
     });
   };
 
@@ -72,13 +71,12 @@ class App extends Component {
   componentDidMount(){
 
     SquareAPI.search({
-      near:"Houston,TX",
+      near:"Houston, TX",
       query: "tacos",
       limit: 5
     }).then(results => {
       
       if(typeof results.response.geocode === "undefined"){
-        //debugger;
         var venues  = [];
         const place  = {id: "5674c936498eafd4110efa65", name: "La Calle Tacos", location: {address: "909 Franklin St", cc: "US", city: "Houston", country: "United States", crossStreet: "Between Travis And Main"}, categories: [{icon: {prefix: "https://ss3.4sqi.net/img/categories_v2/food/taco_", suffix: ".png"}, id: "4bf58dd8d48988d151941735", name: "Taco Place", pluralName: "Taco Places", primary: true, shortName: "Tacos"}]};
         var center  = {lat: parseFloat(29.76328), lng: parseFloat(-95.36327)};

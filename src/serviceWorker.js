@@ -10,6 +10,58 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read http://bit.ly/CRA-PWA
 
+console.log('Service Worker: Registered');
+
+const cacheFiles = [
+    '/',
+    '/src/index.css',
+    '/src/App.css',
+    '/src/App.test.js',
+    '/src/index.js',
+    '/src/logo.svg',
+    '/src/API/index.js',
+    '/public/favicon.ico',
+    '/public/index.html',
+    '/public/manifest.json',
+    '/src/component/ListItem.js',
+    '/src/component/Map.js',
+    '/src/component/SideBar.js',
+    '/src/component/VenueList.js'
+  ];
+
+  window.self.addEventListener('install', function(e) {
+    e.waitUntil(
+        caches.open('v1').then(function(cache) {
+            return cache.addAll(cacheFiles);
+        })
+    );
+  });
+  
+  window.self.addEventListener('fetch', function(e) {
+    e.respondWith(
+        caches.match(e.request).then(function(response) {
+            if (response) {
+                console.log('Found ', e.request, ' in cache');
+                return response;       
+            }
+            else {
+                console.log('Could not find ', e.request, 'in cache, FETCHING!');
+                return fetch(e.request)
+                .then(function(response) {
+                    const clonedResponse = response.clone();
+                    caches.open('v1').then(function(cache) {
+                        cache.put(e.request, clonedResponse);
+                    })
+                    return response;
+                })
+                .catch(function(err) {
+                    console.error(err);
+                });
+            }
+        })
+    );
+  });
+
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.

@@ -1,3 +1,5 @@
+
+
 class Helper {
     static baseURL(){
         return "https://api.foursquare.com/v2";
@@ -65,18 +67,8 @@ class Helper {
     }
 }
 
-
-// // Register Service Worker
-// if ('serviceWorker' in navigator){
-//     navigator.serviceWorker
-//     .register('./serviceWorker.js')
-//     .catch(function(err) {
-//       console.error(err);
-//     });
-//     console.log('service worker registered');
-//   }
-
 export default class SquareAPI {
+
     static search(urlPrams) {
         return Helper.simpleFetch("/venues/search", "GET", urlPrams);
     }
